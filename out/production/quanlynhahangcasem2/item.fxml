@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<AnchorPane prefHeight="215.0" prefWidth="225.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ControllerItem">
+   <children>
+      <VBox layoutX="63.0" layoutY="8.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <HBox prefHeight="42.0" prefWidth="226.0">
+               <children>
+                  <Label fx:id="numberTable" alignment="CENTER" prefHeight="44.0" prefWidth="82.0" text="Bàn 1">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="status" alignment="CENTER" prefHeight="42.0" prefWidth="145.0" text="Đang trống">
+                     <font>
+                        <Font name="Cambria Bold" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <ImageView fitHeight="103.0" fitWidth="271.0">
+               <image>
+                  <Image url="@img/table.png" />
+               </image>
+            </ImageView>
+            <HBox prefHeight="39.0" prefWidth="226.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="32.0" prefWidth="90.0" text="Tổng bill :">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="Bill" prefHeight="28.0" prefWidth="80.0" text="Tổng tiền" />
+                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="26.0" prefWidth="90.0" text="Chi tiết" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <HBox layoutX="98.0" layoutY="183.0" prefHeight="36.0" prefWidth="174.0">
+         <children>
+            <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="91.0" text="Đặt bàn" />
+            <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="78.0" text="Đang dùng" />
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

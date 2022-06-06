@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<HBox xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ControllerLogin">
+   <children>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <ImageView fitHeight="430.0" fitWidth="288.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-88.0" AnchorPane.topAnchor="0.0">
+               <image>
+                  <Image url="@img/storelogo.jpg" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="400.0" prefWidth="446.0">
+         <children>
+            <Label layoutX="126.0" layoutY="227.0" text="Password" AnchorPane.bottomAnchor="184.20000000000002" AnchorPane.leftAnchor="126.0" AnchorPane.rightAnchor="270.0" AnchorPane.topAnchor="227.0" />
+            <ImageView fitHeight="96.0" fitWidth="190.0" layoutX="139.0" layoutY="55.0" AnchorPane.bottomAnchor="277.8" AnchorPane.leftAnchor="139.0" AnchorPane.rightAnchor="117.39999999999998" AnchorPane.topAnchor="55.0">
+               <image>
+                  <Image url="@img/loginicon.png" />
+               </image>
+            </ImageView>
+            <TextField fx:id="userName" layoutX="198.0" layoutY="185.0" prefHeight="26.0" prefWidth="170.0" AnchorPane.bottomAnchor="217.4" AnchorPane.leftAnchor="198.0" AnchorPane.rightAnchor="77.99999999999997" AnchorPane.topAnchor="185.0" />
+            <Label layoutX="209.0" layoutY="151.0" text="Login">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="123.0" layoutY="181.0" text="UserName" />
+            <PasswordField fx:id="passWord" layoutX="198.0" layoutY="222.0" prefHeight="26.0" prefWidth="170.0" AnchorPane.bottomAnchor="180.4" AnchorPane.leftAnchor="198.0" AnchorPane.rightAnchor="77.99999999999997" AnchorPane.topAnchor="222.0" />
+            <Button layoutX="240.0" layoutY="273.0" mnemonicParsing="false" onAction="#submit" prefHeight="26.0" prefWidth="56.0" text="Login" AnchorPane.bottomAnchor="130.59999999999997" AnchorPane.leftAnchor="240.0" AnchorPane.rightAnchor="150.39999999999998" AnchorPane.topAnchor="273.0" />
+            <Button fx:id="button" layoutX="306.0" layoutY="273.0" mnemonicParsing="false" onAction="#sighUp" text="Sign up" AnchorPane.leftAnchor="306.0" AnchorPane.topAnchor="273.0" />
+            <Label layoutX="143.0" prefHeight="43.0" prefWidth="220.0" text="Manage Store" textFill="#ab1a1a" AnchorPane.bottomAnchor="341.6" AnchorPane.leftAnchor="143.0" AnchorPane.rightAnchor="83.39999999999998" AnchorPane.topAnchor="0.0">
+               <font>
+                  <Font name="Gabriola" size="48.0" />
+               </font>
+            </Label>
+            <Label fx:id="accountDNE" layoutX="145.0" layoutY="249.0" prefHeight="25.0" prefWidth="247.0" text="* Account does not exist" textFill="#e11616" visible="false" AnchorPane.bottomAnchor="155.0" AnchorPane.leftAnchor="145.0" AnchorPane.topAnchor="249.0" />
+         </children>
+      </AnchorPane>
+   </children>
+</HBox>

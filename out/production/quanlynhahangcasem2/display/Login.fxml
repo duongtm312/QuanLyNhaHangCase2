@@ -11,7 +11,7 @@
          <children>
             <ImageView fitHeight="430.0" fitWidth="288.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-88.0" AnchorPane.topAnchor="0.0">
                <image>
-                  <Image url="@img/storelogo.jpg" />
+                  <Image url="@../img/storelogo.jpg" />
                </image>
             </ImageView>
          </children>
@@ -21,7 +21,7 @@
             <Label layoutX="126.0" layoutY="227.0" text="Password" AnchorPane.bottomAnchor="184.20000000000002" AnchorPane.leftAnchor="126.0" AnchorPane.rightAnchor="270.0" AnchorPane.topAnchor="227.0" />
             <ImageView fitHeight="96.0" fitWidth="190.0" layoutX="139.0" layoutY="55.0" AnchorPane.bottomAnchor="277.8" AnchorPane.leftAnchor="139.0" AnchorPane.rightAnchor="117.39999999999998" AnchorPane.topAnchor="55.0">
                <image>
-                  <Image url="@img/loginicon.png" />
+                  <Image url="@../img/loginicon.png" />
                </image>
             </ImageView>
             <TextField fx:id="userName" layoutX="198.0" layoutY="185.0" prefHeight="26.0" prefWidth="170.0" AnchorPane.bottomAnchor="217.4" AnchorPane.leftAnchor="198.0" AnchorPane.rightAnchor="77.99999999999997" AnchorPane.topAnchor="185.0" />

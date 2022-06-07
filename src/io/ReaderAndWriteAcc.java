@@ -5,7 +5,7 @@ import models.Account;
 import java.io.*;
 import java.util.ArrayList;
 
-public class ReaderAndWriteStudent {
+public class ReaderAndWriteAcc {
     public static void Write(ArrayList<Account> accounts, String link) {
         try {
             File file = new File(link);
@@ -30,8 +30,7 @@ public class ReaderAndWriteStudent {
         try {
 
             File file = new File(link);
-            FileReader fileReader = null;
-            fileReader = new FileReader(file);
+            FileReader fileReader = new FileReader(file);
             BufferedReader bufferedReader = new BufferedReader(fileReader);
             String str = "";
             while ((str = bufferedReader.readLine()) != null) {

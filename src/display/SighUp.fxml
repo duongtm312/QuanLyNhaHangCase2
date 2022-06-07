@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
+
 <AnchorPane prefHeight="499.0" prefWidth="678.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ControllerSighUp">
    <children>
       <ImageView fitHeight="390.0" fitWidth="298.0" layoutX="-2.0" layoutY="8.0">
          <image>
-            <Image url="@img/storelogo.jpg" />
+            <Image url="@../img/storelogo.jpg" />
          </image>
       </ImageView>
       <Label layoutX="196.0" layoutY="22.0" prefHeight="58.0" prefWidth="230.0" text="Manage Store" textFill="#ab1a1a">
@@ -19,7 +23,7 @@
       </Label>
       <ImageView fitHeight="122.0" fitWidth="196.0" layoutX="372.0" layoutY="24.0">
          <image>
-            <Image url="@img/loginicon.png" />
+            <Image url="@../img/loginicon.png" />
          </image>
       </ImageView>
       <Label layoutX="449.0" layoutY="156.0" prefHeight="27.0" prefWidth="70.0" text="Sigh Up">
@@ -31,10 +35,11 @@
       <TextField fx:id="newUser" layoutX="398.0" layoutY="203.0" prefHeight="26.0" prefWidth="170.0" AnchorPane.bottomAnchor="269.6" AnchorPane.leftAnchor="398.0" AnchorPane.rightAnchor="109.6" AnchorPane.topAnchor="203.0" />
       <Label layoutX="329.0" layoutY="208.0" text="UserName" AnchorPane.bottomAnchor="273.4" AnchorPane.leftAnchor="329.0" AnchorPane.rightAnchor="293.0" AnchorPane.topAnchor="208.0" />
       <PasswordField fx:id="newPass" layoutX="398.0" layoutY="240.0" prefHeight="26.0" prefWidth="170.0" AnchorPane.bottomAnchor="232.6" AnchorPane.leftAnchor="398.0" AnchorPane.rightAnchor="109.6" AnchorPane.topAnchor="240.0" />
-      <Button fx:id="button" layoutX="519.0" layoutY="340.0" mnemonicParsing="false" onAction="#submitNewAcc" prefHeight="27.0" prefWidth="70.0" text="Sign up" AnchorPane.bottomAnchor="131.8" AnchorPane.leftAnchor="519.0" AnchorPane.rightAnchor="88.6" AnchorPane.topAnchor="340.0" />
+      <Button fx:id="button" layoutX="419.0" layoutY="329.0" mnemonicParsing="false" onAction="#submitNewAcc" prefHeight="27.0" prefWidth="70.0" text="Sign up" AnchorPane.bottomAnchor="142.8" AnchorPane.leftAnchor="419.0" AnchorPane.rightAnchor="188.60000000000002" AnchorPane.topAnchor="329.0" />
       <Label fx:id="label" layoutX="369.0" layoutY="311.0" prefHeight="18.0" prefWidth="170.0" textFill="#e11616" AnchorPane.bottomAnchor="169.6" AnchorPane.leftAnchor="369.0" AnchorPane.rightAnchor="138.6" AnchorPane.topAnchor="311.0" />
       <Label layoutX="329.0" layoutY="282.0" text="Password" />
       <PasswordField fx:id="newPassCheck" layoutX="398.0" layoutY="277.0" prefHeight="26.0" prefWidth="170.0" AnchorPane.leftAnchor="398.0" AnchorPane.rightAnchor="109.6" AnchorPane.topAnchor="280.0" />
       <Label layoutX="320.0" layoutY="368.0" text="* Account must be 3 characters or more" textFill="#e40c0c" AnchorPane.bottomAnchor="113.4" AnchorPane.leftAnchor="320.0" AnchorPane.rightAnchor="146.8" AnchorPane.topAnchor="368.0" />
+      <Button fx:id="button2" layoutX="505.0" layoutY="330.0" mnemonicParsing="false" onAction="#signIn" prefHeight="27.0" prefWidth="70.0" text="Sign in" />
    </children>
 </AnchorPane>

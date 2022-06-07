@@ -1,6 +1,6 @@
 package controllers;
 
-import io.ReaderAndWriteStudent;
+import io.ReaderAndWriteAcc;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -29,7 +29,9 @@ public class ControllerSighUp {
     private Label label;
     @FXML
     private Button button;
-    private ArrayList<Account> accounts = ReaderAndWriteStudent.reader("D:\\CodeGym\\CaseModul2\\quanlynhahang\\src\\controllers\\account.csv");
+    @FXML
+    private Button button2;
+    private ArrayList<Account> accounts = ReaderAndWriteAcc.reader("D:\\CodeGym\\CaseModul2\\QuanLyNhaHangCase2\\src\\data\\account.csv");
 
     public void submitNewAcc(ActionEvent event) {
         String user = newUser.getText();
@@ -40,7 +42,7 @@ public class ControllerSighUp {
                 accounts.add(new Account(user, pass));
                 label.setText("Create Account Success");
                 login();
-                ReaderAndWriteStudent.Write(accounts, "D:\\CodeGym\\CaseModul2\\quanlynhahang\\src\\controllers\\account.csv");
+                ReaderAndWriteAcc.Write(accounts, "D:\\CodeGym\\CaseModul2\\quanlynhahang\\src\\controllers\\account.csv");
             } else {
                 label.setText("Account creation failed");
             }
@@ -63,7 +65,20 @@ public class ControllerSighUp {
         Stage stage = (Stage) button.getScene().getWindow();
         stage.close();
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("../Login.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("../display/Login.fxml"));
+            Stage sighUpStage = new Stage();
+            sighUpStage.initStyle(StageStyle.DECORATED);
+            sighUpStage.setScene(new Scene(root));
+            sighUpStage.show();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public void  signIn(ActionEvent event){
+        Stage stage = (Stage) button2.getScene().getWindow();
+        stage.close();
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("../display/Login.fxml"));
             Stage sighUpStage = new Stage();
             sighUpStage.initStyle(StageStyle.DECORATED);
             sighUpStage.setScene(new Scene(root));

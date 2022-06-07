@@ -1,6 +1,6 @@
 package controllers;
 
-import io.ReaderAndWriteStudent;
+import io.ReaderAndWriteAcc;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -26,12 +26,12 @@ public class ControllerLogin {
     private Label accountDNE;
     @FXML
     private Button button;
-    private ArrayList<Account> accounts = ReaderAndWriteStudent.reader("D:\\CodeGym\\CaseModul2\\quanlynhahang\\src\\controllers\\account.csv");
+    private ArrayList<Account> accounts = ReaderAndWriteAcc.reader("D:\\CodeGym\\CaseModul2\\QuanLyNhaHangCase2\\src\\data\\account.csv");
     public void submit(ActionEvent event){
         String us = userName.getText();
         String ps = passWord.getText();
         if (CheckAcc(us,ps)){
-            System.out.println("In");
+            sighIn();
         }else {
             accountDNE.setVisible(true);
         }
@@ -50,7 +50,7 @@ public class ControllerLogin {
         Stage stage = (Stage) button.getScene().getWindow();
         stage.close();
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("../item.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("../display/SighUp.fxml"));
             Stage sighUpStage = new Stage();
             sighUpStage.initStyle(StageStyle.DECORATED);
             sighUpStage.setScene(new Scene(root));
@@ -59,4 +59,18 @@ public class ControllerLogin {
             throw new RuntimeException(e);
         }
     }
+    public void sighIn(){
+        Stage stage = (Stage) button.getScene().getWindow();
+        stage.close();
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("../display/restaurant.fxml"));
+            Stage sighUpStage = new Stage();
+            sighUpStage.initStyle(StageStyle.DECORATED);
+            sighUpStage.setScene(new Scene(root));
+            sighUpStage.show();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 }

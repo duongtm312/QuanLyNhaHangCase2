@@ -1,3 +1,5 @@
+package Main;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -16,7 +18,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException {
         primaryStage.setTitle("Login");
-        Parent root = FXMLLoader.load(getClass().getResource("display/Login.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../display/restaurant.fxml"));
        primaryStage.initStyle(StageStyle.DECORATED);
         Scene scene =new Scene(root );
         primaryStage.setScene(scene);

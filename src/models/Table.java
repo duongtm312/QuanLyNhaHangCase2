@@ -1,5 +1,7 @@
 package models;
 
+import controllers.ControllerOrder;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -7,14 +9,19 @@ public class Table implements Serializable {
     private int numberTable;
     private String status;
     private double bill;
-    private ArrayList<Product> products;
+    private ArrayList<Product> products = new ArrayList<>();
 
     public ArrayList<Product> getProducts() {
         return products;
     }
-
-    public void setProducts(ArrayList<Product> products) {
+public void setPrd( ArrayList<Product> products){
         this.products = products;
+}
+    public void setProducts(Product product) {
+        products.add(product);
+    }
+
+    public Table() {
     }
 
     public Table(int numberTable, String status, double bill) {

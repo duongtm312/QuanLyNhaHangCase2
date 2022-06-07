@@ -1,5 +1,6 @@
 package controllers;
 
+import Main.Mylistener;
 import data.TableMain;
 import io.ReaderAndWriteTable;
 import javafx.event.ActionEvent;
@@ -24,7 +25,6 @@ public class ControllerRes implements Initializable {
     @FXML
     private GridPane grid;
     public ArrayList<Table> tables = TableMain.tables;
-
     public void test(ActionEvent event) {
 
     }

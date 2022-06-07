@@ -26,33 +26,19 @@
                         <Font name="Cambria Bold" size="18.0" />
                      </font>
                   </Label>
-                  <Button mnemonicParsing="false" onAction="#menuOrder" prefHeight="42.0" prefWidth="62.0" text="Order">
+                  <Button mnemonicParsing="false" onAction="#menuOrder" prefHeight="35.0" prefWidth="82.0" text="Gọi món">
                      <font>
                         <Font name="Arial Bold" size="12.0" />
                      </font>
                   </Button>
                </children>
             </HBox>
-            <ImageView fitHeight="103.0" fitWidth="267.0">
+            <ImageView fitHeight="124.0" fitWidth="267.0">
                <image>
                   <Image url="@../img/table.png" />
                </image>
             </ImageView>
-            <HBox prefHeight="28.0" prefWidth="271.0">
-               <children>
-                  <Label alignment="CENTER" prefHeight="32.0" prefWidth="72.0" text="Tổng bill :">
-                     <font>
-                        <Font name="System Bold" size="14.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="Bill" prefHeight="30.0" prefWidth="126.0" text="Tổng tiền" />
-                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="70.0" text="Chi tiết" textFill="#3210d9">
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font></Button>
-               </children>
-            </HBox>
-            <ButtonBar prefHeight="40.0" prefWidth="200.0">
+            <ButtonBar prefHeight="69.0" prefWidth="267.0">
               <buttons>
                   <Button minWidth="65.0" mnemonicParsing="false" onAction="#setUsing" prefHeight="26.0" prefWidth="78.0" text="Đang dùng" textFill="#c41313">
                      <font>

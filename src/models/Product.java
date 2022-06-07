@@ -4,11 +4,12 @@ import java.io.Serializable;
 
 public class Product implements Serializable {
     private String name;
+    private String nameVt;
     private double price;
     private String img;
-
-    public Product(String name, double price, String img) {
+    public Product(String name,String nameVt ,double price, String img) {
         this.name = name;
+        this.nameVt = nameVt;
         this.price = price;
         this.img = img;
     }
@@ -34,5 +35,10 @@ public class Product implements Serializable {
 
     public void setImg(String img) {
         this.img = img;
+    }
+
+    @Override
+    public String toString() {
+        return nameVt+"--"+price+"VNĐ";
     }
 }

@@ -28,7 +28,6 @@
                     <buttons>
                         <Button mnemonicParsing="false" onAction="#addTable" text="Thêm bàn" />
                       <Button mnemonicParsing="false" onAction="#deleteTable" text="Xóa bàn" />
-                        <Button mnemonicParsing="false" onAction="#write" text="Lưu" />
                     </buttons>
                   </ButtonBar>
                </children>

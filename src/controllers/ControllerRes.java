@@ -29,9 +29,6 @@ public class ControllerRes implements Initializable {
 
     }
 
-    public void write(ActionEvent event) {
-        ReaderAndWriteTable.write(tables, "D:\\CodeGym\\CaseModul2\\QuanLyNhaHangCase2\\src\\data\\table.csv");
-    }
 
     public void write() {
         ReaderAndWriteTable.write(tables, "D:\\CodeGym\\CaseModul2\\QuanLyNhaHangCase2\\src\\data\\table.csv");

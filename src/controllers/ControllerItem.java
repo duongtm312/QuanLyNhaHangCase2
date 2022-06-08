@@ -1,6 +1,7 @@
 package controllers;
 
 import Main.Mylistener;
+import data.TableMain;
 import io.ReaderAndWriteTable;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -26,6 +27,7 @@ public class ControllerItem {
     @FXML
     private Label status;
     private Table table;
+    private Mylistener mylistener;
 
     public void setData(Table table) {
         this.table = table;
@@ -60,12 +62,18 @@ public class ControllerItem {
         table.setStatus("Đang sử dụng");
         status.setText("Đang sử dụng");
         status.setTextFill(Color.RED);
+        mylistener = new Mylistener() {
+            @Override
+            public void onClickLiestener(Table table) {
+                setStatus(table);
+            }
+        };
         try {
             FXMLLoader fxmlLoader = new FXMLLoader();
             fxmlLoader.setLocation(getClass().getResource("../display/order.fxml"));
             AnchorPane anchorPane = fxmlLoader.load();
             ControllerOrder controllerOrder = fxmlLoader.getController();
-            controllerOrder.setData(table);
+            controllerOrder.setData(table,mylistener);
             Stage menuOrder = new Stage();
             menuOrder.setScene(new Scene(anchorPane));
             menuOrder.show();
@@ -73,5 +81,11 @@ public class ControllerItem {
             throw new RuntimeException(e);
         }
 
+    }
+    public void setStatus(Table table){
+        table.setStatus("Đang Trống");
+        status.setText("Đang Trống");
+        status.setTextFill(Color.BLACK);
+        ReaderAndWriteTable.write(TableMain.tables, "D:\\CodeGym\\CaseModul2\\QuanLyNhaHangCase2\\src\\data\\table.csv");
     }
 }

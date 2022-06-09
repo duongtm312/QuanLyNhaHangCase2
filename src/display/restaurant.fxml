@@ -43,6 +43,7 @@
                   <ButtonBar prefHeight="40.0" prefWidth="200.0">
                     <buttons>
                       <Button mnemonicParsing="false" onAction="#displaySales" text="Doanh thu" />
+                        <Button mnemonicParsing="false" onAction="#deleteBill" text="Xóa dữ liệu " />
                     </buttons>
                   </ButtonBar>
                </children>

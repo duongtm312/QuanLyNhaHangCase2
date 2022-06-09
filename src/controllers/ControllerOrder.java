@@ -198,38 +198,43 @@ public class ControllerOrder {
     public void addProduct(ActionEvent event){
         String id = nameIdAdd.getText();
         String name = nameAdd.getText();
-        double price =-1;
-        try {
-            price = Double.parseDouble(priceAdd.getText());
-        }catch (Exception e){
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setTitle("Sai định dạng giá");
-            alert.setHeaderText("Sai định dạng giá");
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Chức năng đang...");
+            alert.setHeaderText("Chức năng đang được hoàn thiện xin cảm ơn!!!");
             alert.show();
-        }
-        String link = linkAdd.getText();
-        if (checkProduct(id)==-1&&price!=-1){
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setTitle("Thêm sản phẩm");
-            alert.setHeaderText("Thêm sản phẩm " + name);
-            ButtonType buttonTypeYes = new ButtonType("Yes", ButtonBar.ButtonData.YES);
-            ButtonType buttonTypeNo = new ButtonType("No", ButtonBar.ButtonData.NO);
-            ButtonType buttonTypeCancel = new ButtonType("Cancel", ButtonBar.ButtonData.CANCEL_CLOSE);
-            alert.getButtonTypes().setAll(buttonTypeYes, buttonTypeNo, buttonTypeCancel);
-            Optional<ButtonType> result = alert.showAndWait();
-            if (result.get() == buttonTypeYes) {
-                products.add(new Product(name,id,price,link));
-                ReaderAndWriteTable.writePr(products, "D:\\CodeGym\\CaseModul2\\QuanLyNhaHangCase2\\src\\data\\product.csv");
-                displayProduct();
-            }
 
-
-        }else {
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setTitle("Mã sản phẩm tồn tại");
-            alert.setHeaderText("Mã sản phẩm tồn tại");
-            alert.show();
-        }
+//        double price =-1;
+//        try {
+//            price = Double.parseDouble(priceAdd.getText());
+//        }catch (Exception e){
+//            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+//            alert.setTitle("Sai định dạng giá");
+//            alert.setHeaderText("Sai định dạng giá");
+//            alert.show();
+//        }
+//        String link = linkAdd.getText();
+//        if (checkProduct(id)==-1&&price!=-1){
+//            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+//            alert.setTitle("Thêm sản phẩm");
+//            alert.setHeaderText("Thêm sản phẩm " + name);
+//            ButtonType buttonTypeYes = new ButtonType("Yes", ButtonBar.ButtonData.YES);
+//            ButtonType buttonTypeNo = new ButtonType("No", ButtonBar.ButtonData.NO);
+//            ButtonType buttonTypeCancel = new ButtonType("Cancel", ButtonBar.ButtonData.CANCEL_CLOSE);
+//            alert.getButtonTypes().setAll(buttonTypeYes, buttonTypeNo, buttonTypeCancel);
+//            Optional<ButtonType> result = alert.showAndWait();
+//            if (result.get() == buttonTypeYes) {
+//                products.add(new Product(name,id,price,link));
+//                ReaderAndWriteTable.writePr(products, "D:\\CodeGym\\CaseModul2\\QuanLyNhaHangCase2\\src\\data\\product.csv");
+//                displayProduct();
+//            }
+//
+//
+//        }else {
+//            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+//            alert.setTitle("Mã sản phẩm tồn tại");
+//            alert.setHeaderText("Mã sản phẩm tồn tại");
+//            alert.show();
+//        }
 
 
     }

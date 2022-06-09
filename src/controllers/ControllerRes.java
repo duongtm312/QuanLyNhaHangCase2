@@ -9,9 +9,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
@@ -23,6 +21,7 @@ import models.Table;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class ControllerRes implements Initializable {
@@ -144,5 +143,21 @@ public class ControllerRes implements Initializable {
         }
         sales.setText(str+sale+"VNĐ");
     }
+public void deleteBill(ActionEvent event){
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Xóa dữ liệu doanh thu");
+            alert.setHeaderText("Xác nhận xóa dữ liệu doanh thu");
+            ButtonType buttonTypeYes = new ButtonType("Yes", ButtonBar.ButtonData.YES);
+            ButtonType buttonTypeNo = new ButtonType("No", ButtonBar.ButtonData.NO);
+            ButtonType buttonTypeCancel = new ButtonType("Cancel", ButtonBar.ButtonData.CANCEL_CLOSE);
+            alert.getButtonTypes().setAll(buttonTypeYes, buttonTypeNo, buttonTypeCancel);
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.get() == buttonTypeYes) {
+                bills.clear();
+                ReaderAndWriteTable.writeBill(bills,"D:\\CodeGym\\CaseModul2\\QuanLyNhaHangCase2\\src\\data\\bill.csv");
+                displaySales();
+            }
 
+
+}
 }

@@ -17,17 +17,32 @@
    <children>
       <BorderPane layoutX="14.0" layoutY="14.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <left>
-            <VBox prefHeight="810.0" prefWidth="213.0" BorderPane.alignment="CENTER">
+            <VBox prefHeight="810.0" prefWidth="304.0" BorderPane.alignment="CENTER">
                <children>
                   <Label alignment="CENTER" prefHeight="128.0" prefWidth="214.0" text="Nhà hàng" textFill="#1a24b7">
                      <font>
                         <Font name="System Bold Italic" size="36.0" />
                      </font>
                   </Label>
+                  <Label fx:id="wellCome" alignment="CENTER" prefHeight="47.0" prefWidth="214.0" text="Label">
+                     <font>
+                        <Font name="Arial Bold Italic" size="18.0" />
+                     </font></Label>
                   <ButtonBar prefHeight="38.0" prefWidth="202.0">
                     <buttons>
-                        <Button mnemonicParsing="false" onAction="#addTable" text="Thêm bàn" />
                       <Button mnemonicParsing="false" onAction="#deleteTable" text="Xóa bàn" />
+                        <Button mnemonicParsing="false" onAction="#addTable" text="Thêm bàn" />
+                        <Button fx:id="logOut" mnemonicParsing="false" onAction="#logOut" prefHeight="26.0" prefWidth="114.0" text="Đăng xuất" />
+                    </buttons>
+                  </ButtonBar>
+                  <Label fx:id="sales" alignment="TOP_CENTER" prefHeight="390.0" prefWidth="317.0">
+                     <font>
+                        <Font name="Arial Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <ButtonBar prefHeight="40.0" prefWidth="200.0">
+                    <buttons>
+                      <Button mnemonicParsing="false" onAction="#displaySales" text="Doanh thu" />
                     </buttons>
                   </ButtonBar>
                </children>

@@ -35,7 +35,7 @@ public class ReaderAndWriteAcc {
             String str = "";
             while ((str = bufferedReader.readLine()) != null) {
                 String[] arr = str.split(",");
-                accounts.add(new Account(arr[0], arr[1]));
+                accounts.add(new Account(arr[0], arr[1],arr[2]));
             }
             bufferedReader.close();
             fileReader.close();

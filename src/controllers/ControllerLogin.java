@@ -1,15 +1,16 @@
 package controllers;
 
+import Main.Mylistener;
 import io.ReaderAndWriteAcc;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import models.Account;
@@ -50,11 +51,12 @@ public class ControllerLogin {
         Stage stage = (Stage) button.getScene().getWindow();
         stage.close();
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("../display/SighUp.fxml"));
-            Stage sighUpStage = new Stage();
-            sighUpStage.initStyle(StageStyle.DECORATED);
-            sighUpStage.setScene(new Scene(root));
-            sighUpStage.show();
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(getClass().getResource("../display/SighUp.fxml"));
+            AnchorPane anchorPane = fxmlLoader.load();
+            Stage sighup = new Stage();
+            sighup.setScene(new Scene(anchorPane));
+            sighup.show();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -63,14 +65,21 @@ public class ControllerLogin {
         Stage stage = (Stage) button.getScene().getWindow();
         stage.close();
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("../display/restaurant.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(getClass().getResource("../display/restaurant.fxml"));
+            AnchorPane anchorPane = fxmlLoader.load();
+            ControllerRes controllerRes = fxmlLoader.getController();
+            controllerRes.setData(userName.getText());
             Stage sighUpStage = new Stage();
             sighUpStage.initStyle(StageStyle.DECORATED);
-            sighUpStage.setScene(new Scene(root));
+            sighUpStage.setScene(new Scene(anchorPane));
             sighUpStage.show();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
 
+    public void setData(ArrayList<Account> accounts) {
+        this.accounts = accounts;
+    }
 }

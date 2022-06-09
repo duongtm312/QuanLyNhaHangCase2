@@ -11,11 +11,13 @@ import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
+import models.Bill;
 import models.Product;
 import models.Table;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Optional;
 
 public class ControllerOrder {
@@ -31,14 +33,17 @@ public class ControllerOrder {
     private Label payMoney;
     private Mylistener mylistener;
     private ArrayList<Product> products = new ArrayList<>();
+    public ArrayList<Bill> bills = ReaderAndWriteTable.readerBill("D:\\CodeGym\\CaseModul2\\QuanLyNhaHangCase2\\src\\data\\bill.scv");
     private Table table;
     private Mylistener mylistener2;
+    private Mylistener mylistener3;
 
-    public void setData(Table table1, Mylistener mylistener) {
+    public void setData(Table table1, Mylistener mylistener,Mylistener mylistenerRes) {
         table = table1;
         name.setText("Bàn " + table1.getNumberTable());
         productMenu();
         mylistener2 = mylistener;
+        mylistener3 = mylistenerRes;
     }
 
     private ArrayList<Product> getData() {
@@ -84,7 +89,7 @@ public class ControllerOrder {
 
     public void productMenu() {
         setMenuOrder(table);
-        mylistener = new Mylistener() {
+        mylistener = new Mylistener<Table>() {
             @Override
             public void onClickLiestener(Table table) {
                 setMenuOrder(table);
@@ -119,27 +124,31 @@ public class ControllerOrder {
     public void payOrder(ActionEvent event) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Thanh toán");
-        alert.setContentText("Thanh toán "+"Bàn "+ table.getNumberTable()+" : "+pay+"VNĐ" );
+        alert.setHeaderText("Thanh toán "+"Bàn "+ table.getNumberTable()+" : "+pay+"VNĐ" );
         ButtonType buttonTypeYes = new ButtonType("Yes", ButtonBar.ButtonData.YES);
         ButtonType buttonTypeNo = new ButtonType("No", ButtonBar.ButtonData.NO);
         ButtonType buttonTypeCancel = new ButtonType("Cancel", ButtonBar.ButtonData.CANCEL_CLOSE);
         alert.getButtonTypes().setAll(buttonTypeYes,buttonTypeNo,buttonTypeCancel);
         Optional<ButtonType> result = alert.showAndWait();
         if (result.get()==buttonTypeYes){
+            Bill bill = new Bill(new Date(),pay);
+            bills.add(bill);
             pay=0;
             table.setPrd(new ArrayList<Product>());
             menuOrder.setText("");
             payMoney.setText("0.0VNĐ");
             mylistener2.onClickLiestener(table);
+            mylistener3.onClickLiestener(bills);
             write();
+            ReaderAndWriteTable.writeBill(bills,"D:\\CodeGym\\CaseModul2\\QuanLyNhaHangCase2\\src\\data\\bill.scv");
         }
 
     }
 
     public void delete(ActionEvent event) {
-        int index = table.getProducts().size() - 1;
+        int index = table.getProducts().size() ;
         if (index > 0) {
-            table.getProducts().remove(index);
+            table.getProducts().remove(index-1);
             setMenuOrder(table);
         }
         write();

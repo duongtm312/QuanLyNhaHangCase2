@@ -28,8 +28,9 @@ public class ControllerItem {
     private Label status;
     private Table table;
     private Mylistener mylistener;
+    private Mylistener mylistener2;
 
-    public void setData(Table table) {
+    public void setData(Table table,Mylistener mylistener) {
         this.table = table;
         numberTable.setText("Bàn" + table.getNumberTable());
         status.setText(table.getStatus());
@@ -38,6 +39,7 @@ public class ControllerItem {
         } else if (table.getStatus().equals("Đã đặt")) {
             status.setTextFill(Color.BLUE);
         }
+        mylistener2 = mylistener;
     }
 
     public void setUsing(ActionEvent event) {
@@ -62,7 +64,7 @@ public class ControllerItem {
         table.setStatus("Đang sử dụng");
         status.setText("Đang sử dụng");
         status.setTextFill(Color.RED);
-        mylistener = new Mylistener() {
+        mylistener = new Mylistener<Table>() {
             @Override
             public void onClickLiestener(Table table) {
                 setStatus(table);
@@ -73,7 +75,7 @@ public class ControllerItem {
             fxmlLoader.setLocation(getClass().getResource("../display/order.fxml"));
             AnchorPane anchorPane = fxmlLoader.load();
             ControllerOrder controllerOrder = fxmlLoader.getController();
-            controllerOrder.setData(table,mylistener);
+            controllerOrder.setData(table,mylistener,mylistener2);
             Stage menuOrder = new Stage();
             menuOrder.setScene(new Scene(anchorPane));
             menuOrder.show();

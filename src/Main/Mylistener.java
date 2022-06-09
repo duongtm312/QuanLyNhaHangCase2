@@ -2,6 +2,6 @@ package Main;
 
 import models.Table;
 
-public interface Mylistener {
-    void onClickLiestener(Table table);
+public interface Mylistener<E> {
+    void onClickLiestener(E e);
 }

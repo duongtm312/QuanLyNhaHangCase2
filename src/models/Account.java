@@ -3,10 +3,12 @@ package models;
 public class Account {
     private String UserName;
     private String Password;
+    private String Mail;
 
-    public Account(String userName, String password) {
+    public Account(String userName, String password,String mail) {
         UserName = userName;
         Password = password;
+        Mail = mail;
     }
 
     public String getUserName() {
@@ -25,7 +27,16 @@ public class Account {
         Password = password;
 
     }
+
+    public String getMail() {
+        return Mail;
+    }
+
+    public void setMail(String mail) {
+        Mail = mail;
+    }
+
     public String write(){
-        return UserName +","+Password;
+        return UserName +","+Password+","+Mail;
     }
 }

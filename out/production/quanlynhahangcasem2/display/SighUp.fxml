@@ -35,11 +35,13 @@
       <TextField fx:id="newUser" layoutX="398.0" layoutY="203.0" prefHeight="26.0" prefWidth="170.0" AnchorPane.bottomAnchor="269.6" AnchorPane.leftAnchor="398.0" AnchorPane.rightAnchor="109.6" AnchorPane.topAnchor="203.0" />
       <Label layoutX="329.0" layoutY="208.0" text="UserName" AnchorPane.bottomAnchor="273.4" AnchorPane.leftAnchor="329.0" AnchorPane.rightAnchor="293.0" AnchorPane.topAnchor="208.0" />
       <PasswordField fx:id="newPass" layoutX="398.0" layoutY="240.0" prefHeight="26.0" prefWidth="170.0" AnchorPane.bottomAnchor="232.6" AnchorPane.leftAnchor="398.0" AnchorPane.rightAnchor="109.6" AnchorPane.topAnchor="240.0" />
-      <Button fx:id="button" layoutX="419.0" layoutY="329.0" mnemonicParsing="false" onAction="#submitNewAcc" prefHeight="27.0" prefWidth="70.0" text="Sign up" AnchorPane.bottomAnchor="142.8" AnchorPane.leftAnchor="419.0" AnchorPane.rightAnchor="188.60000000000002" AnchorPane.topAnchor="329.0" />
-      <Label fx:id="label" layoutX="369.0" layoutY="311.0" prefHeight="18.0" prefWidth="170.0" textFill="#e11616" AnchorPane.bottomAnchor="169.6" AnchorPane.leftAnchor="369.0" AnchorPane.rightAnchor="138.6" AnchorPane.topAnchor="311.0" />
+      <Button fx:id="button" layoutX="419.0" layoutY="369.0" mnemonicParsing="false" onAction="#submitNewAcc" prefHeight="27.0" prefWidth="70.0" text="Sign up" AnchorPane.bottomAnchor="102.80000000000001" AnchorPane.leftAnchor="419.0" AnchorPane.rightAnchor="188.60000000000002" AnchorPane.topAnchor="369.0" />
+      <Label fx:id="label" layoutX="334.0" layoutY="342.0" prefHeight="27.0" prefWidth="230.0" textFill="#e11616" AnchorPane.bottomAnchor="130.0" AnchorPane.leftAnchor="334.0" AnchorPane.rightAnchor="114.0" AnchorPane.topAnchor="342.0" />
       <Label layoutX="329.0" layoutY="282.0" text="Password" />
       <PasswordField fx:id="newPassCheck" layoutX="398.0" layoutY="277.0" prefHeight="26.0" prefWidth="170.0" AnchorPane.leftAnchor="398.0" AnchorPane.rightAnchor="109.6" AnchorPane.topAnchor="280.0" />
-      <Label layoutX="320.0" layoutY="368.0" text="* Account must be 3 characters or more" textFill="#e40c0c" AnchorPane.bottomAnchor="113.4" AnchorPane.leftAnchor="320.0" AnchorPane.rightAnchor="146.8" AnchorPane.topAnchor="368.0" />
-      <Button fx:id="button2" layoutX="505.0" layoutY="330.0" mnemonicParsing="false" onAction="#signIn" prefHeight="27.0" prefWidth="70.0" text="Sign in" />
+      <Label layoutX="313.0" layoutY="183.0" text="* Account must be 6 characters or more" textFill="#e40c0c" AnchorPane.bottomAnchor="298.4" AnchorPane.leftAnchor="313.0" AnchorPane.rightAnchor="153.79999999999995" AnchorPane.topAnchor="183.0" />
+      <Button fx:id="button2" layoutX="505.0" layoutY="370.0" mnemonicParsing="false" onAction="#signIn" prefHeight="27.0" prefWidth="70.0" text="Sign in" />
+      <Label layoutX="332.0" layoutY="324.0" prefHeight="18.0" prefWidth="50.0" text="Mail" />
+      <TextField fx:id="mail" layoutX="398.0" layoutY="320.0" prefHeight="26.0" prefWidth="170.0" />
    </children>
 </AnchorPane>

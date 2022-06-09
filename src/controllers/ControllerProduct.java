@@ -9,7 +9,7 @@ import javafx.scene.image.ImageView;
 import models.Product;
 import models.Table;
 
-public class ControllerProduct {
+public class    ControllerProduct {
     @FXML
     private ImageView img;
     @FXML

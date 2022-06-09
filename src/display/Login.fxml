@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
+
 <HBox xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ControllerLogin">
    <children>
       <AnchorPane prefHeight="200.0" prefWidth="200.0">
@@ -40,6 +45,7 @@
                </font>
             </Label>
             <Label fx:id="accountDNE" layoutX="145.0" layoutY="249.0" prefHeight="25.0" prefWidth="247.0" text="* Account does not exist" textFill="#e11616" visible="false" AnchorPane.bottomAnchor="155.0" AnchorPane.leftAnchor="145.0" AnchorPane.topAnchor="249.0" />
+            <Label layoutX="126.0" layoutY="277.0" prefHeight="18.0" prefWidth="116.0" text="Forgot password" textFill="#d70f0f" />
          </children>
       </AnchorPane>
    </children>

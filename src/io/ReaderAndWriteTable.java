@@ -1,5 +1,6 @@
 package io;
 
+import models.Bill;
 import models.Table;
 
 import java.io.*;
@@ -31,5 +32,31 @@ public class ReaderAndWriteTable {
             throw new RuntimeException(e);
         }
         return new ArrayList<>();
+    }
+    public static ArrayList<Bill> readerBill(String link){
+        File file = new File(link);
+        try {
+            FileInputStream fileInputStream = new FileInputStream(file);
+            ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
+            return (ArrayList<Bill>) objectInputStream.readObject();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        return new ArrayList<>();
+    }
+    public static void writeBill(ArrayList<Bill> tb, String link) {
+        File file = new File(link);
+        try {
+            FileOutputStream fileOutputStream = new FileOutputStream(file);
+            ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
+            objectOutputStream.writeObject(tb);
+            objectOutputStream.close();
+            fileOutputStream.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 }

@@ -37,6 +37,14 @@ public class Product implements Serializable {
         this.img = img;
     }
 
+    public String getNameVt() {
+        return nameVt;
+    }
+
+    public void setNameVt(String nameVt) {
+        this.nameVt = nameVt;
+    }
+
     @Override
     public String toString() {
         return nameVt+"--"+price+"VNĐ";

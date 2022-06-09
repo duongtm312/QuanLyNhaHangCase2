@@ -39,7 +39,7 @@ public class ControllerRes implements Initializable {
 
 
     public ArrayList<Table> tables = TableMain.tables;
-    public ArrayList<Bill> bills = ReaderAndWriteTable.readerBill("D:\\CodeGym\\CaseModul2\\QuanLyNhaHangCase2\\src\\data\\bill.scv");
+    public ArrayList<Bill> bills = ReaderAndWriteTable.readerBill("D:\\CodeGym\\CaseModul2\\QuanLyNhaHangCase2\\src\\data\\bill.csv");
     private Mylistener mylistener;
 
     public void test(ActionEvent event) {

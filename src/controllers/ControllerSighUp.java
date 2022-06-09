@@ -43,9 +43,7 @@ public class ControllerSighUp {
         String pass = newPass.getText();
         String passCheck = newPassCheck.getText();
         String m = mail.getText();
-        if (!Validate.ValidateString(user) && !checkUseNew(user)) {
-            label.setText("This account is Invalid");
-        } else {
+        if (Validate.ValidateString(user) && checkUseNew(user)) {
             if (pass.equals(passCheck) && Validate.ValidateString(pass)) {
                 if (Validate.ValidateMail(m)) {
                     accounts.add(new Account(user, pass, m));
@@ -58,6 +56,9 @@ public class ControllerSighUp {
             } else {
                 label.setText("Password incorrect");
             }
+
+        } else {
+            label.setText("This account is Invalid");
         }
     }
 

@@ -10,12 +10,14 @@ import javafx.geometry.Insets;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import models.Bill;
 import models.Product;
 import models.Table;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Optional;
@@ -31,14 +33,31 @@ public class ControllerOrder {
     private Label menuOrder;
     @FXML
     private Label payMoney;
+    @FXML
+    private TextField textIdPr;
+    @FXML
+    private HBox hBoxInLink;
+
+    @FXML
+    private HBox hBoxInName;
+
+    @FXML
+    private TextField nameAdd;
+
+    @FXML
+    private TextField nameIdAdd;
+    @FXML
+    private TextField linkAdd;
+    @FXML
+    private TextField priceAdd;
     private Mylistener mylistener;
-    private ArrayList<Product> products = new ArrayList<>();
-    public ArrayList<Bill> bills = ReaderAndWriteTable.readerBill("D:\\CodeGym\\CaseModul2\\QuanLyNhaHangCase2\\src\\data\\bill.scv");
+    private ArrayList<Product> products = ReaderAndWriteTable.readerPr("D:\\CodeGym\\CaseModul2\\QuanLyNhaHangCase2\\src\\data\\product.csv");
+    public ArrayList<Bill> bills = ReaderAndWriteTable.readerBill("D:\\CodeGym\\CaseModul2\\QuanLyNhaHangCase2\\src\\data\\bill.csv");
     private Table table;
     private Mylistener mylistener2;
     private Mylistener mylistener3;
 
-    public void setData(Table table1, Mylistener mylistener,Mylistener mylistenerRes) {
+    public void setData(Table table1, Mylistener mylistener, Mylistener mylistenerRes) {
         table = table1;
         name.setText("Bàn " + table1.getNumberTable());
         productMenu();
@@ -46,38 +65,13 @@ public class ControllerOrder {
         mylistener3 = mylistenerRes;
     }
 
-    private ArrayList<Product> getData() {
-        ArrayList<Product> products = new ArrayList<>();
-        Product product;
-        product = new Product("Cơm rang rưa bò", "CRRB", 30000, "../img/doan/comrang.jpg");
-        products.add(product);
-        product = new Product("Phở bò Nam Định", "PBNĐ", 40000, "../img/doan/phobo.jpg");
-        products.add(product);
-        product = new Product("Bún cá cay Hải Phòng", "BCCHP", 40000, "../img/doan/bunca.jpg");
-        products.add(product);
-        product = new Product("Gà nướng Tây Bắc", "GNTB", 150000, "../img/doan/ganuong.jpg");
-        products.add(product);
-        product = new Product("Lẩu lòng bò", "LLB", 300000, "../img/doan/laubo.jpg");
-        products.add(product);
-        product = new Product("Lẩu Thập cẩm", "LTC", 450000, "../img/doan/lauthapcam.jpg");
-        products.add(product);
-        product = new Product("Lẩu Hải sản", "LHC", 850000, "../img/doan/lauhaisan.jpg");
-        products.add(product);
-        product = new Product("Coca cola", "CCL", 10000, "../img/doan/coca.jpg");
-        products.add(product);
-        product = new Product("Bia tiger", "BiTG", 20000, "../img/doan/bia.jpg");
-        products.add(product);
-        product = new Product("Nước lọc", "NcL", 8000, "../img/doan/nuoc.jpg");
-        products.add(product);
-        return products;
-    }
-    private double pay =0;
+    private double pay = 0;
 
     private void setMenuOrder(Table table) {
         ArrayList<Product> products1 = table.getProducts();
         String str = "";
         String strPay = "";
-        pay=0;
+        pay = 0;
         for (Product pt : products1
         ) {
             str += pt.toString() + "\n";
@@ -95,10 +89,14 @@ public class ControllerOrder {
                 setMenuOrder(table);
             }
         };
+        displayProduct();
 
+    }
+
+    public void displayProduct() {
+        grid.getChildren().clear();
         int colum = 0;
         int row = 1;
-        products.addAll(getData());
         try {
             for (int i = 0; i < products.size(); i++) {
                 FXMLLoader fxmlLoader = new FXMLLoader();
@@ -120,35 +118,34 @@ public class ControllerOrder {
         }
     }
 
-
     public void payOrder(ActionEvent event) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Thanh toán");
-        alert.setHeaderText("Thanh toán "+"Bàn "+ table.getNumberTable()+" : "+pay+"VNĐ" );
+        alert.setHeaderText("Thanh toán " + "Bàn " + table.getNumberTable() + " : " + pay + "VNĐ");
         ButtonType buttonTypeYes = new ButtonType("Yes", ButtonBar.ButtonData.YES);
         ButtonType buttonTypeNo = new ButtonType("No", ButtonBar.ButtonData.NO);
         ButtonType buttonTypeCancel = new ButtonType("Cancel", ButtonBar.ButtonData.CANCEL_CLOSE);
-        alert.getButtonTypes().setAll(buttonTypeYes,buttonTypeNo,buttonTypeCancel);
+        alert.getButtonTypes().setAll(buttonTypeYes, buttonTypeNo, buttonTypeCancel);
         Optional<ButtonType> result = alert.showAndWait();
-        if (result.get()==buttonTypeYes){
-            Bill bill = new Bill(new Date(),pay);
+        if (result.get() == buttonTypeYes) {
+            Bill bill = new Bill(new Date(), pay);
             bills.add(bill);
-            pay=0;
+            pay = 0;
             table.setPrd(new ArrayList<Product>());
             menuOrder.setText("");
             payMoney.setText("0.0VNĐ");
             mylistener2.onClickLiestener(table);
             mylistener3.onClickLiestener(bills);
             write();
-            ReaderAndWriteTable.writeBill(bills,"D:\\CodeGym\\CaseModul2\\QuanLyNhaHangCase2\\src\\data\\bill.scv");
+            ReaderAndWriteTable.writeBill(bills, "D:\\CodeGym\\CaseModul2\\QuanLyNhaHangCase2\\src\\data\\bill.csv");
         }
 
     }
 
     public void delete(ActionEvent event) {
-        int index = table.getProducts().size() ;
+        int index = table.getProducts().size();
         if (index > 0) {
-            table.getProducts().remove(index-1);
+            table.getProducts().remove(index - 1);
             setMenuOrder(table);
         }
         write();
@@ -156,5 +153,84 @@ public class ControllerOrder {
 
     public void write() {
         ReaderAndWriteTable.write(TableMain.tables, "D:\\CodeGym\\CaseModul2\\QuanLyNhaHangCase2\\src\\data\\table.csv");
+    }
+
+    public void deleteProduct(ActionEvent event) {
+        String id = textIdPr.getText();
+        int check = checkProduct(id);
+        if (check != -1) {
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Xóa sản phẩm");
+            alert.setHeaderText("Xóa sản phẩm " + products.get(check).getName());
+            ButtonType buttonTypeYes = new ButtonType("Yes", ButtonBar.ButtonData.YES);
+            ButtonType buttonTypeNo = new ButtonType("No", ButtonBar.ButtonData.NO);
+            ButtonType buttonTypeCancel = new ButtonType("Cancel", ButtonBar.ButtonData.CANCEL_CLOSE);
+            alert.getButtonTypes().setAll(buttonTypeYes, buttonTypeNo, buttonTypeCancel);
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.get() == buttonTypeYes) {
+                products.remove(check);
+                ReaderAndWriteTable.writePr(products, "D:\\CodeGym\\CaseModul2\\QuanLyNhaHangCase2\\src\\data\\product.csv");
+                displayProduct();
+            }
+        } else {
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Sai mã sản phẩm");
+            alert.setHeaderText("Mãi sản phẩm không tồn tại");
+            alert.show();
+        }
+    }
+
+    public int checkProduct(String id) {
+        int index = -1;
+        for (int i = 0; i < products.size(); i++) {
+            if (products.get(i).getNameVt().equals(id)) {
+                index = i;
+                break;
+            }
+        }
+        return index;
+    }
+
+    public void disPlayAdd(ActionEvent event) {
+        hBoxInLink.setVisible(true);
+        hBoxInName.setVisible(true);
+    }
+    public void addProduct(ActionEvent event){
+        String id = nameIdAdd.getText();
+        String name = nameAdd.getText();
+        double price =-1;
+        try {
+            price = Double.parseDouble(priceAdd.getText());
+        }catch (Exception e){
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Sai định dạng giá");
+            alert.setHeaderText("Sai định dạng giá");
+            alert.show();
+        }
+        String link = linkAdd.getText();
+        if (checkProduct(id)==-1&&price!=-1){
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Thêm sản phẩm");
+            alert.setHeaderText("Thêm sản phẩm " + name);
+            ButtonType buttonTypeYes = new ButtonType("Yes", ButtonBar.ButtonData.YES);
+            ButtonType buttonTypeNo = new ButtonType("No", ButtonBar.ButtonData.NO);
+            ButtonType buttonTypeCancel = new ButtonType("Cancel", ButtonBar.ButtonData.CANCEL_CLOSE);
+            alert.getButtonTypes().setAll(buttonTypeYes, buttonTypeNo, buttonTypeCancel);
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.get() == buttonTypeYes) {
+                products.add(new Product(name,id,price,link));
+                ReaderAndWriteTable.writePr(products, "D:\\CodeGym\\CaseModul2\\QuanLyNhaHangCase2\\src\\data\\product.csv");
+                displayProduct();
+            }
+
+
+        }else {
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Mã sản phẩm tồn tại");
+            alert.setHeaderText("Mã sản phẩm tồn tại");
+            alert.show();
+        }
+
+
     }
 }

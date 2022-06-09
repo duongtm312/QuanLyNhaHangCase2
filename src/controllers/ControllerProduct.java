@@ -25,7 +25,7 @@ public class    ControllerProduct {
 
         this.mylistener = mylistener;
         this.product = product;
-        name.setText("" + product.getName());
+        name.setText(""+product.getNameVt()+":" + product.getName());
         price.setText(product.getPrice() + "VNĐ");
         Image image = new Image(getClass().getResourceAsStream(product.getImg()));
         img.setImage(image);

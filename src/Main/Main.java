@@ -17,7 +17,6 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws IOException {
-        primaryStage.setTitle("Login");
         Parent root = FXMLLoader.load(getClass().getResource("../display/Login.fxml"));
        primaryStage.initStyle(StageStyle.DECORATED);
         Scene scene =new Scene(root );

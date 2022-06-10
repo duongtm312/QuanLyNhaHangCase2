@@ -46,7 +46,7 @@ public class ControllerSighUp {
         if (Validate.ValidateString(user) && checkUseNew(user)) {
             if (pass.equals(passCheck) && Validate.ValidateString(pass)) {
                 if (Validate.ValidateMail(m)) {
-                    accounts.add(new Account(user, pass, m));
+                    accounts.add(new Account(user, pass, m,user));
                     label.setText("Create Account Success");
                     ReaderAndWriteAcc.Write(accounts, "D:\\CodeGym\\CaseModul2\\QuanLyNhaHangCase2\\src\\data\\account.csv");
                     login();

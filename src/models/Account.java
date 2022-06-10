@@ -4,11 +4,14 @@ public class Account {
     private String UserName;
     private String Password;
     private String Mail;
+    private String control;
 
-    public Account(String userName, String password,String mail) {
+    public Account(String userName, String password,String mail,String control) {
         UserName = userName;
         Password = password;
         Mail = mail;
+        this.control = control;
+
     }
 
     public String getUserName() {
@@ -36,7 +39,15 @@ public class Account {
         Mail = mail;
     }
 
+    public String getControl() {
+        return control;
+    }
+
+    public void setControl(String control) {
+        this.control = control;
+    }
+
     public String write(){
-        return UserName +","+Password+","+Mail;
+        return UserName +","+Password+","+Mail+","+control;
     }
 }

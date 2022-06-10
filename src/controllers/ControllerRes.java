@@ -15,6 +15,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
 import javafx.stage.Stage;
+import models.Account;
 import models.Bill;
 import models.Table;
 
@@ -35,6 +36,10 @@ public class ControllerRes implements Initializable {
     private Button logOut;
     @FXML
     private Label sales;
+
+    @FXML
+    private Button deleteRevanue;
+
 
 
     public ArrayList<Table> tables = TableMain.tables;
@@ -111,8 +116,11 @@ public class ControllerRes implements Initializable {
         }
     }
 
-    public void setData(String text) {
-        wellCome.setText("WellCome: " + text);
+    public void setData(Account account) {
+        if (account.getControl().equals("user")){
+            deleteRevanue.setVisible(false);
+        }
+        wellCome.setText("WellCome: " + account.getUserName());
     }
 
     public void logOut(ActionEvent event) {

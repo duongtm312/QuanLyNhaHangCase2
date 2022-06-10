@@ -32,7 +32,8 @@ public class ControllerLogin {
         String us = userName.getText();
         String ps = passWord.getText();
         if (CheckAcc(us,ps)){
-            sighIn();
+            int index = CheckAccIndex(us,ps);
+            sighIn(index);
         }else {
             accountDNE.setVisible(true);
         }
@@ -46,6 +47,16 @@ public class ControllerLogin {
             }
         }
         return false;
+    }
+    public int CheckAccIndex(String user,String ps){
+        for (int i = 0; i <accounts.size() ; i++) {
+            if (accounts.get(i).getUserName().equals(user)){
+                if (accounts.get(i).getPassword().equals(ps)){
+                    return i;
+                }
+            }
+        }
+        return -1;
     }
     public void  sighUp(ActionEvent event){
         Stage stage = (Stage) button.getScene().getWindow();
@@ -61,7 +72,7 @@ public class ControllerLogin {
             throw new RuntimeException(e);
         }
     }
-    public void sighIn(){
+    public void sighIn(int index){
         Stage stage = (Stage) button.getScene().getWindow();
         stage.close();
         try {
@@ -69,7 +80,7 @@ public class ControllerLogin {
             fxmlLoader.setLocation(getClass().getResource("../display/restaurant.fxml"));
             AnchorPane anchorPane = fxmlLoader.load();
             ControllerRes controllerRes = fxmlLoader.getController();
-            controllerRes.setData(userName.getText());
+            controllerRes.setData(accounts.get(index));
             Stage sighUpStage = new Stage();
             sighUpStage.initStyle(StageStyle.DECORATED);
             sighUpStage.setScene(new Scene(anchorPane));
